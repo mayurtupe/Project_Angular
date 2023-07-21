@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      
+    }
+  ],
+  "owners": [
+    {
+      
+    }
+  ],
+  "admin": [
+    {
+      "id": "mayur",
+      "name": "mayur",
+      "email": "mayur123@gmail.com",
+      "gender": "male",
+      "password": "mayur@123"
+
+  }
+]
+}
