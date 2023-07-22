@@ -1,14 +1,6 @@
 {
-  "users": [
-    {
-      
-    }
-  ],
-  "owners": [
-    {
-      
-    }
-  ],
+  "users": [],
+  "owners": [],
   "admin": [
     {
       "id": "mayur",
@@ -18,5 +10,6 @@
       "password": "mayur@123"
 
   }
-]
+],
+"hotelDetails": []
 }
