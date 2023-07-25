@@ -1,21 +1,15 @@
-.btn-container{
-    position:relative;
-    top: 25px;
-    background-color: rgb(96, 216, 146);
-}
 .btns{
-    padding: 6px 6px;
     margin: 5px;
 }
 .example-form{
     text-align: center;
-    border: 2px solid #fff;
-    background-color: rgba(51, 50, 50, 0.664);
+    border: 1px solid;
+    box-shadow: inset;
+    border-radius: 15px;
+    background-color: rgba(7, 97, 60, 0.445);
     width: 250px;
-    height: 260px;
+    height: auto;
     margin-left: 100px;
-    border-radius: 10px;
-    padding: 10px 10px;
 }
 .background{
     background-image: url('../../assets/images/odctwsgz.png');
