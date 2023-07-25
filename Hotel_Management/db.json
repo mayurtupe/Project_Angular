@@ -3,13 +3,45 @@
   "owners": [],
   "admin": [
     {
-      "id": "mayur",
-      "name": "mayur",
-      "email": "mayur123@gmail.com",
-      "gender": "male",
-      "password": "mayur@123"
-
-  }
+      "UserName": "poonam",
+      "Email": "poonambhapkar34@gmail.com",
+      "Mobile": "6565666653",
+      "Password": "Poonam2123",
+      "Gender": "female",
+      "id": 1
+    },
+    {
+      "UserName": "shree",
+      "Email": "shree34@gmail.com",
+      "Mobile": "3443333",
+      "Password": "shree",
+      "Gender": "male",
+      "id": 2
+    },
+    {
+      "UserName": "shree",
+      "Email": "shree34@gmail.com",
+      "Mobile": "3443333",
+      "Password": "shree",
+      "Gender": "male",
+      "id": 3
+    },
+    {
+      "UserName": "sachin",
+      "Email": "sachin@gmail.com",
+      "Mobile": "989898989",
+      "Password": "sachin@123",
+      "Gender": "male",
+      "id": 4
+    },
+    {
+      "UserName": "Sai",
+      "Email": "Sai@gmail",
+      "Mobile": "98989898989",
+      "Password": "Sai@123",
+      "Gender": "male",
+      "id": 5
+    }
 ],
 "hotelDetails": []
 }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { OwnerRoutingModule } from './owner-routing.module';
 import { OwnerHomeComponent } from './owner-home/owner-home.component';
 import { OwnersignupComponent } from './ownersignup/ownersignup.component';
-import { OwnerloginComponent } from './ownerlogin/ownerlogin.component';
 import { SharedModule } from '../common/shared/shared.module';
+import { NewhotelregistrationComponent } from './newhotelregistration/newhotelregistration.component';
+import { OwnersuccessComponent } from './ownersuccess/ownersuccess.component';
 
 
 
@@ -13,7 +13,8 @@ import { SharedModule } from '../common/shared/shared.module';
   declarations: [
     OwnerHomeComponent,
     OwnersignupComponent,
-    OwnerloginComponent,
+    NewhotelregistrationComponent,
+    OwnersuccessComponent,
   ],
   imports: [
     CommonModule,

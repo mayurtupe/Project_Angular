@@ -23,7 +23,7 @@ constructor (private router:Router,
       this.commonService.journey = 'owner'
       this.router.navigateByUrl('owner');
     }
-    else if(journey === 'user'){
+    else {
       this.commonService.journey = 'user'
       this.router.navigateByUrl('user');
     }

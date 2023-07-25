@@ -1,0 +1,18 @@
+.container {
+    border-image: url('/assets/images/hotel.jpg');
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-content: center;
+}
+
+.btns{
+    padding: 6px 6px;
+    margin: 5px;
+}
+
+.btn-container{
+    position: relative;
+    top: 25px;
+    align-items: center;
+}

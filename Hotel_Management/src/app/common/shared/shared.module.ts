@@ -7,6 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { MatSelectModule } from "@angular/material/select";
+import { MatOptionModule } from "@angular/material/core";
 
 @NgModule({
     declarations: [],
@@ -18,12 +21,23 @@ import { ReactiveFormsModule } from "@angular/forms";
         MatFormFieldModule,
         MatRadioModule,
         MatInputModule,
-        ReactiveFormsModule
-        ],
-        exports: [
-            MatCardModule,
-            MatInputModule,
-            MatRadioModule
-            ]     
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatSelectModule,
+        MatOptionModule,
+
+    ],
+    exports: [
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatRadioModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatSelectModule,
+        MatOptionModule
+    ]
 })
 export class SharedModule { }

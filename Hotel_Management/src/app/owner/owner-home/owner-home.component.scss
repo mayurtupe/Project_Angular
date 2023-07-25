@@ -1,0 +1,26 @@
+.btn-container{
+    position:relative;
+    top: 25px;
+    background-color: rgb(96, 216, 146);
+}
+.btns{
+    padding: 6px 6px;
+    margin: 5px;
+}
+.example-form{
+    text-align: center;
+    border: 1px solid #fff;
+    background-color: rgba(59, 56, 56, 0.8);
+    width: 250px;
+    height: 275px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+.background{
+    background-image: url('../../../assets/images/hotel\ suit.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position:center ;
+    background-size: cover;
+}

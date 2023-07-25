@@ -1,1 +1,23 @@
-<p>admin works!</p>
+<div class="background">
+
+    <button mat-raised-button color="primary" class="btns" (click)="back()">Back</button>
+    <br><br><br><br>
+    <form class="example-form" [formGroup]="adminForm">
+        <br>
+        <h2><strong>Admin Login</strong> </h2>
+        <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" formControlName="username">
+        </mat-form-field> <br>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        <br>
+    
+        <button mat-raised-button color="primary" (click)="admin()">Admin</button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <a routerLink="/owner/ownersignup" mat-raised-button color="accent">New Owner?</a> -->
+    
+    </form>
+    </div>
