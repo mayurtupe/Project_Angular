@@ -43,5 +43,11 @@
       "id": 5
     }
 ],
-"hotelDetails": []
+"hotelDetails": [
+  {
+    "hotelName": "DevaInn",
+    "hotelAddress": "Baramati",
+    "hotel"
+  }
+]
 }

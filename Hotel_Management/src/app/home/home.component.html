@@ -1,8 +1,8 @@
 <div class="container">
     <div class="btn-container">
-        <button (click)="journey('admin')">Admin</button> &nbsp;
-        <button (click)="journey('owner')">Owner</button> &nbsp;
-        <button (click)="journey('user')">User</button> &nbsp;
-        <button *ngIf="showLogOut" class="btns">Log Out</button>
+        <button mat-raised-button color="accent" (click)="journey('admin')">Admin</button> &nbsp;
+        <button mat-raised-button color="primary" (click)="journey('owner')">Owner</button> &nbsp;
+        <button mat-raised-button color="primary" (click)="journey('user')">User</button> &nbsp;
+        <button mat-raised-button color="primary" *ngIf="showLogOut" class="btns">Log Out</button>
     </div>
 </div>

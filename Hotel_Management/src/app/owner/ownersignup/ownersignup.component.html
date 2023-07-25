@@ -10,35 +10,48 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>Name</mat-label>
                     <input matInput placeholder="Name" formControlName="name">
+                    <mat-hint *ngIf="!signUpForm.get('name')?.touched">
+                        Please Enter Name Here
+                    </mat-hint>
+                    <mat-error *ngIf="signUpForm.get('name')?.errors?.['minlength'] && !signUpForm.get('name')?.errors?.['Pattern']">
+                        Minimum 7 characters are required
+                    </mat-error>
+                    <mat-error
+                        *ngIf= "signUpForm.get('name')?.errors?.['Pattern']" >
+                        Pattern should match
+                    </mat-error>
+                    <mat-error *ngIf="signUpForm.get('name')?.errors?.['whiteSpaceValidator']">
+                        Name entered with white space 
+                    </mat-error>
                 </mat-form-field> &nbsp;&nbsp;&nbsp;
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Pan Card</mat-label>
                     <input matInput placeholder="Pan Card" formControlName="panCard">
-                </mat-form-field><br>
+                </mat-form-field> <br>
 
                 <mat-form-field class="example-full-width">
                     <mat-label>City</mat-label>
-                    <input matInput placeholder="Pan Card" formControlName="city">
+                    <input matInput placeholder="City" formControlName="city">
                 </mat-form-field>&nbsp;&nbsp;&nbsp;
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
                     <input matInput placeholder="Email" formControlName="email">
-                </mat-form-field><br>
+                </mat-form-field> <br>
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Mobile</mat-label>
                     <input matInput placeholder="mobile" formControlName="mobile">
                 </mat-form-field>&nbsp;&nbsp;&nbsp;
 
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="example-full-width" >
                     <mat-label>Select Gender</mat-label>
                     <mat-select mat-input formControlName="gender" placeholder="Select Gender">
                         <mat-option value="gender">Male</mat-option>
                         <mat-option value="gender">Female</mat-option>
                         <mat-option value="gender">Other</mat-option>
-                        {{ gender }}                   
+                        <!-- {{ gender }} -->
                     </mat-select>
                 </mat-form-field> <br>
 
@@ -49,10 +62,11 @@
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Confirm Password</mat-label>
-                    <input matInput placeholder="Password" formControlName="confirmPassword">
+                    <input type="password" matInput placeholder="Password" formControlName="confirmPassword">
                 </mat-form-field><br>
 
-                <button mat-raised-button color="primary" style="margin-left: 175px;" (click)="submit()">Submit</button><br>
+                <button mat-raised-button color="primary" style="margin-left: 175px;"
+                    (click)="submit()">Submit</button><br>
 
             </form>
         </mat-card-content>

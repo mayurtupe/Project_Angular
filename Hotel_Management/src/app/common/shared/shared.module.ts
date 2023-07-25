@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from "@angular/material/input";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MatSelectModule } from "@angular/material/select";
 import { MatOptionModule } from "@angular/material/core";
@@ -25,6 +25,7 @@ import { MatOptionModule } from "@angular/material/core";
         HttpClientModule,
         MatSelectModule,
         MatOptionModule,
+        FormsModule
 
     ],
     exports: [
@@ -37,7 +38,8 @@ import { MatOptionModule } from "@angular/material/core";
         ReactiveFormsModule,
         HttpClientModule,
         MatSelectModule,
-        MatOptionModule
+        MatOptionModule,
+        FormsModule
     ]
 })
 export class SharedModule { }

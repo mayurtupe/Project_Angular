@@ -1,18 +1,24 @@
 .container {
-    border-image: url('/assets/images/hotel.jpg');
-    height: 100%;
+    background-image: url('../../assets/images/HotelPage.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    align-content: center;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-.btns{
+.btns {
     padding: 6px 6px;
     margin: 5px;
 }
 
-.btn-container{
-    position: relative;
-    top: 25px;
-    align-items: center;
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    text-align: center;
+    
 }
