@@ -10,11 +10,13 @@
     width: 250px;
     height: auto;
     margin-left: 100px;
+    margin-top: 90px;
 }
 .background{
-    background-image: url('../../assets/images/odctwsgz.png');
+    background-image: url('../../assets/images/king-crown-with-royal-classic-hotellogo.png');
     height: 100%;
     background-repeat: no-repeat;
     background-position:center ;
-    background-size: cover;
+    // background-size: cover;
+    background-color: rgba(3, 3, 3, 0.541);
 }

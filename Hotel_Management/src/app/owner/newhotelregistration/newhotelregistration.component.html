@@ -1,1 +1,79 @@
-<p>newhotelregistration works!</p>
+<div class="bg">
+    <button mat-raised-button color="primary" class="btns" (click)="back()">Back</button> <br><br><br>
+    <mat-card>
+
+        <mat-card-header >
+            <h2><strong>Hotel Registration Form</strong> </h2>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="hotelRegistrationForm">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Hotel Name</mat-label>
+                    <input matInput placeholder="Hotel Name" formControlName="hotelname">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('hotelname')?.touched">
+                        Enter Hotel Name
+                    </mat-hint>
+                    </mat-form-field> &nbsp;&nbsp;&nbsp;
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address" formControlName="address">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('address')?.touched">
+                        Enter Address 
+                    </mat-hint>
+                </mat-form-field> <br>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>City</mat-label>
+                    <input matInput placeholder="City" formControlName="city">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('city')?.touched">
+                        Please Enter City Name Here
+                    </mat-hint>
+                </mat-form-field>&nbsp;&nbsp;&nbsp;
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('email')?.touched">
+                        Please Enter Email Here
+                    </mat-hint>
+                </mat-form-field> <br>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Mobile</mat-label>
+                    <input matInput placeholder="Mobile" formControlName="mobile">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('mobile')?.touched">
+                        Please Enter Mobile No. Here
+                    </mat-hint>
+                </mat-form-field>&nbsp;&nbsp;&nbsp;
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Pin code</mat-label>
+                    <input matInput placeholder="Pin code" formControlName="pinCode">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('pinCode')?.touched">
+                        Please Enter Pin Code Here
+                    </mat-hint>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password" formControlName="password">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('password')?.touched">
+                        Please Enter Password Here
+                    </mat-hint>
+                </mat-form-field>&nbsp;&nbsp;&nbsp;
+                
+                <mat-form-field class="example-full-width">
+                    <mat-label>Confirm Password</mat-label>
+                    <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('confirmPassword')?.touched">
+                        Please Enter Password Here
+                    </mat-hint>
+                </mat-form-field><br><br>
+
+                <button mat-raised-button color="primary" style="margin-left: 175px;"
+                    (click)="submit()">Submit</button><br>
+
+            </form>
+        </mat-card-content>
+    </mat-card>

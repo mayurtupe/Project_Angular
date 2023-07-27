@@ -31,13 +31,13 @@ export class OwnersignupComponent {
   FormDetails() {
     this.signUpForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(7), Validators.pattern('[a-zA-Z0-9 ]*')]],
-      panCard: ['', []],
-      city: ['', []],
-      email: ['', []],
-      mobile: ['', []],
-      gender: ['', []],
-      password: ['', []],
-      confirmPassword: ['', []],
+      panCard: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      mobile: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
 
     })
   }
