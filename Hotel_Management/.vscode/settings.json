@@ -1,0 +1,6 @@
+{
+    "eslint.format.enable": true,
+    "eslint.problems.shortenToSingleLine": true,
+    "eslint.lintTask.enable": true,
+    "auto-close-tag.fullMode": false
+}
