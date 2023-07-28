@@ -17,5 +17,6 @@ export class CommonApiCallService {
   getApiCall(endPoint:string){
     let url = this.url + endPoint;
     return this.http.get(url);
+    
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonApiCallService } from '../common/common-api-call.service';
 import { CommonService } from '../common/common.service';
@@ -51,5 +51,23 @@ isValidAdmin(){
   });
   return
 }
+AdminDetails() {
+  this.adminForm = this.fb.group({
+    Admin: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+  })
+}
 
+submit() {
+  let request = {
+    Admin: this.adminForm.value.admin,
+    Password: this.adminForm.value.password,
+
+  }
+}
+login(){
+  console.log(this.adminForm.value);
+  // this.getOwnerApiData();
+  console.log('this.adminData',this.adminData);
+}
 }

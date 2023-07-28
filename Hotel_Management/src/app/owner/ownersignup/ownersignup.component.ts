@@ -15,7 +15,6 @@ export class OwnersignupComponent {
   postResponse: any;
   // SelectedG = new FormControl();
   // gender: string[] = [];
-  whiteSpaceValidator: any | string;
 
   constructor(private fb: FormBuilder,
     private commonService: CommonService,
@@ -44,7 +43,7 @@ export class OwnersignupComponent {
 
   submit() {
     let request = {
-      UserName: this.signUpForm.value.name,
+      UserName: this.signUpForm.value.name?.split(" ").join(' '),
       PanCard: this.signUpForm.value.panCard,
       City: this.signUpForm.value.city,
       Email: this.signUpForm.value.email,
@@ -63,7 +62,7 @@ export class OwnersignupComponent {
     //}
   }
   back() {
-    this.router.navigateByUrl('home');
+    this.router.navigateByUrl('owner/owner-home');
   }
 
 }

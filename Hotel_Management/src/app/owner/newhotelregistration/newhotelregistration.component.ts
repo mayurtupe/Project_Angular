@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonApiCallService } from 'src/app/common/common-api-call.service';
-import { CommonService } from 'src/app/common/common.service';
 
 @Component({
   selector: 'app-newhotelregistration',
@@ -13,35 +12,50 @@ export class NewhotelregistrationComponent {
   hotelRegistrationForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private commonService: CommonService,
-    private apicallService: CommonApiCallService,
+    private commonApiCallService: CommonApiCallService,
     private router: Router) { }
-  back() {
-    this.router.navigateByUrl('home');
-  }
-  FormDetails() {
-    this.hotelRegistrationForm = this.fb.group({
-      hotelname: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      mobile: ['', [Validators.required]],
-      pinCode: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
 
+  ngOnInit() {
+    this.myOwnerRegistration();
+  }
+  myOwnerRegistration() {
+    this.hotelRegistrationForm = this.fb.group({
+      ownerName: ['', [Validators.required, Validators.minLength(5), Validators.pattern('[A-za-z ]*$')]],
+      ownerContact: ['', [Validators.required, Validators.pattern('[0-9]*$')]],
+      hotelName: ['', [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z0-9/$@ ]*$')]],
+      hotelAddress: ['', [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z0-9 ]*$')]],
+      hotelContact: ['', [Validators.required, Validators.pattern('[0-9]*$')]],
+      hotelMenu: ['', [Validators.required, Validators.minLength(2)]],
+      roomsAvailable: ['', [Validators.required, Validators.pattern('[0-9]*$')]],
+      ownerCheck: ['', [Validators.required,]],
+      userPass: ['', [Validators.required,]],
     })
   }
+  back() {
+    this.router.navigateByUrl('owner/owner-home');
+  }
   submit() {
+    let endpoint = 'hotelDetails';
+    console.log('form data', this.hotelRegistrationForm.value);
+
     let request = {
-      HotelName: this.hotelRegistrationForm.value.hotelName,
-      Address: this.hotelRegistrationForm.value.address,
-      City: this.hotelRegistrationForm.value.city,
-      Email: this.hotelRegistrationForm.value.email,
-      Mobile: this.hotelRegistrationForm.value.mobile,
-      Pincode: this.hotelRegistrationForm.value.pinCode,
-      Password: this.hotelRegistrationForm.value.password,
-      ConfirmPassword: this.hotelRegistrationForm.value.confirmPassword,
+      ownerName: this.hotelRegistrationForm.value.ownerName,
+      ownerContact: this.hotelRegistrationForm.value.ownerContact,
+      hotelName: this.hotelRegistrationForm.value.hotelName,
+      hotelAddress: this.hotelRegistrationForm.value.hotelAddress,
+      hotelContact: this.hotelRegistrationForm.value.hotelContact,
+      hotelMenu: this.hotelRegistrationForm.value.hotelMenu,
+      roomsAvailable: this.hotelRegistrationForm.value.roomsAvailable,
+      ownerCheck: this.hotelRegistrationForm.value.ownerCheck,
+      password: this.hotelRegistrationForm.value.userPass,
     }
-}
+    this.commonApiCallService.postApiCall(endpoint, request).subscribe((resp: any) => {
+      console.log(resp);
+
+    })
+    this.router.navigateByUrl('owner/ownerSuccess')
+
+
+  }
+
 }

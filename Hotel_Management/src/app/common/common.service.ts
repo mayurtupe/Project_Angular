@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
   journey!:string;
-  
+  userName!:string;
   constructor() { }
 
   whiteSpaceValidator(nameField:any){
