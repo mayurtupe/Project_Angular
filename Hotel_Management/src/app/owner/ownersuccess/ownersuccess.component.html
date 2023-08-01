@@ -1,4 +1,25 @@
 <div class="bg">
-<button mat-raised-button color="accent" (click)="hotelRegistration()">New Hotel Registration</button><br><br>
+<button mat-raised-button color="accent" (click)="hotelRegistration()">New Hotel Registration</button>
 <button mat-raised-button color="accent" (click)="myHotelDetails()">My Hotel Details</button>
 </div>
+
+<div class="btn-container">
+    <button mat-raised-button routerLink="/owener/newhotel">ADD HOTEL</button>
+    <button mat-raised-button (click)="getdata()">Hotel Details</button>
+  </div>
+  
+  <div>
+    <input type="text" placeholder="Search here..." [(ngModel)]="inputValue" (keyup)="inptVal($event)">
+  </div>
+  <table>
+    <tr>
+      <th *ngFor="let heading of tableHeading">{{ heading }}</th>
+    </tr>
+    <tr *ngFor="let hoteldata of hotelDetails">
+      <th>{{ hoteldata.hotelName }}</th>
+      <th>{{ hoteldata.hotelAddress }}</th>
+      <th>{{ hoteldata.roomsAvailable }}</th>
+      <th>{{ hoteldata.hotelMenu }}</th>
+      <th>{{ hoteldata.roomsAvailable }}</th>
+    </tr>
+  </table>

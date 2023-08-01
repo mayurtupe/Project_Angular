@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MatSelectModule } from "@angular/material/select";
 import { MatOptionModule } from "@angular/material/core";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
     declarations: [],
@@ -25,7 +26,8 @@ import { MatOptionModule } from "@angular/material/core";
         HttpClientModule,
         MatSelectModule,
         MatOptionModule,
-        FormsModule
+        FormsModule,
+        ToastrModule
 
     ],
     exports: [
@@ -39,7 +41,8 @@ import { MatOptionModule } from "@angular/material/core";
         HttpClientModule,
         MatSelectModule,
         MatOptionModule,
-        FormsModule
+        FormsModule,
+        ToastrModule
     ]
 })
 export class SharedModule { }

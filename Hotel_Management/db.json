@@ -1,5 +1,10 @@
 {
-  "admin": [],
+  "admin": [
+    {
+      "adminName":"mayur",
+      "password":"mayur@123"
+    }
+  ],
   "user": [],
   "owner": [
     {

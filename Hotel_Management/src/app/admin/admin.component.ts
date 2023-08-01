@@ -10,24 +10,31 @@ import { CommonService } from '../common/common.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  adminForm!:FormGroup;
+  adminForm!: FormGroup;
   adminData: any;
-  endPoint!:string;
-  validAdmin:boolean=false;
+  endPoint!: string;
+  validAdmin: boolean = false;
 
-  constructor (private router:Router,
-    private commonApiCallService:CommonApiCallService,
-    private fb:FormBuilder,
-    private commonService: CommonService){}
+  constructor(private router: Router,
+    private commonApiCallService: CommonApiCallService,
+    private fb: FormBuilder,
+    private commonService: CommonService) { }
 
+  ngOnInit() {
+    this.AdminDetails();
+    this.endPoint = this.commonService.journey;
+    this.getAdminApiData();
+    console.log(this.endPoint);
+    
+  }
   back() {
     this.router.navigateByUrl('home')
   }
-  admin(){
+  admin() {
+    
     console.log(this.adminForm.value);
-    console.log('this.adminData',this.adminData);
 
-    if(this.adminData) {
+    if (this.adminData) {
       this.isValidAdmin();
       if (this.validAdmin) {
         this.router.navigateByUrl('owner/ownersuccess');
@@ -36,38 +43,38 @@ export class AdminComponent {
         this.router.navigateByUrl('home');
       }
     }
-}
-getAdminApiData(){
-  this.commonApiCallService.getApiCall(this.endPoint).subscribe(getAdminResponse=>{
-    this.adminData = getAdminResponse;
-  })
-}
-
-isValidAdmin(){
-  this.adminData.forEach((element:any)=>{
-    if(element.userName === this.adminForm.value.userName && element.password === this.adminForm.value.password){
-      this.validAdmin = true;
-    }
-  });
-  return
-}
-AdminDetails() {
-  this.adminForm = this.fb.group({
-    Admin: ['', [Validators.required]],
-    password: ['', [Validators.required]],
-  })
-}
-
-submit() {
-  let request = {
-    Admin: this.adminForm.value.admin,
-    Password: this.adminForm.value.password,
-
   }
-}
-login(){
-  console.log(this.adminForm.value);
-  // this.getOwnerApiData();
-  console.log('this.adminData',this.adminData);
-}
+  getAdminApiData() {
+    this.commonApiCallService.getApiCall(this.endPoint).subscribe(getAdminResponse => {
+      this.adminData = getAdminResponse;
+    })
+  }
+
+  isValidAdmin() {
+    this.adminData.forEach((element: any) => {
+      if (element.adminName === this.adminForm.value.adminName && element.password === this.adminForm.value.password) {
+        this.validAdmin = true;
+      }
+    });
+    return
+  }
+  AdminDetails() {
+    this.adminForm = this.fb.group({
+      adminName: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+    })
+  }
+
+  submit() {
+    let request = {
+      Admin: this.adminForm.value.admin,
+      Password: this.adminForm.value.password,
+
+    }
+  }
+  login() {
+    this.admin();
+    console.log(this.adminForm.value);
+    console.log('this.adminData', this.adminData);
+  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { CommonApiCallService } from 'src/app/common/common-api-call.service';
 import { CommonService } from 'src/app/common/common.service';
@@ -9,6 +9,7 @@ import { CommonService } from 'src/app/common/common.service';
   templateUrl: './ownersignup.component.html',
   styleUrls: ['./ownersignup.component.scss']
 })
+
 export class OwnersignupComponent {
   signUpForm!: FormGroup;
   journey!: string;
@@ -41,7 +42,7 @@ export class OwnersignupComponent {
     })
   }
 
-  submit() {
+  async submit() {
     let request = {
       UserName: this.signUpForm.value.name?.split(" ").join(' '),
       PanCard: this.signUpForm.value.panCard,
@@ -53,10 +54,11 @@ export class OwnersignupComponent {
       ConfirmPassword: this.signUpForm.value.confirmPassword,
     }
 
-    this.apicallService.postApiCall(this.journey, request).subscribe(resp => {
-      console.log('response', resp);
-      this.postResponse = resp;
-    })
+    // this.apicallService.postApiCall(this.journey, request).subscribe(resp => {
+    //   console.log('response', resp);
+    //   this.postResponse = resp;
+    // })
+    this.postResponse = await this.apicallService.postApiCall(this.journey, request).toPromise()
     // if(this.postResponse?.id){
     this.router.navigateByUrl('owner/ownersuccess');
     //}

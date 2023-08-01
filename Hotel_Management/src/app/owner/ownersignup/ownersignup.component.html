@@ -13,25 +13,25 @@
                     <mat-hint *ngIf="!signUpForm.get('name')?.touched">
                         Please Enter Name Here
                     </mat-hint>
-                    <mat-error *ngIf="signUpForm.get('name')?.errors?.['minlength'] && !signUpForm.get('name')?.errors?.['Pattern']">
-                        Minimum 7 characters are required
-                    </mat-error>
                     <mat-error
-                        *ngIf= "signUpForm.get('name')?.errors?.['Pattern']" >
+                        *ngIf="signUpForm.get('name')?.errors?.['minlength'] && !signUpForm.get('name')?.errors?.['Pattern']">
+                        Minimum 5 characters are required
+                    </mat-error>
+                    <mat-error *ngIf="signUpForm.get('name')?.errors?.['Pattern']">
                         Pattern should match
                     </mat-error>
                     <mat-error *ngIf="signUpForm.get('name')?.errors?.['whiteSpaceValidator']">
-                        Name entered is containing white space 
+                        Name entered is containing white space
                     </mat-error>
                 </mat-form-field> &nbsp;&nbsp;&nbsp;
 
-                <mat-form-field class="example-full-width">
+                <!-- <mat-form-field class="example-full-width">
                     <mat-label>Pan Card</mat-label>
                     <input matInput placeholder="Pan Card" formControlName="panCard">
                     <mat-hint *ngIf="!signUpForm.get('panCard')?.touched">
                         Please Pan Card Details Here
-                    </mat-hint>
-                </mat-form-field> <br>
+                    </mat-hint> 
+                </mat-form-field> <br> -->
 
                 <mat-form-field class="example-full-width">
                     <mat-label>City</mat-label>
@@ -57,7 +57,7 @@
                     </mat-hint>
                 </mat-form-field>&nbsp;&nbsp;&nbsp;
 
-                <mat-form-field class="example-full-width" >
+                <mat-form-field class="example-full-width">
                     <mat-label>Select Gender</mat-label>
                     <mat-select mat-input formControlName="gender" placeholder="Select Gender">
                         <mat-option value="gender">Male</mat-option>
@@ -75,13 +75,13 @@
                     </mat-hint>
                 </mat-form-field>&nbsp;&nbsp;&nbsp;
 
-                <mat-form-field class="example-full-width">
+                <!-- <mat-form-field class="example-full-width">
                     <mat-label>Confirm Password</mat-label>
                     <input type="password" matInput placeholder="Password" formControlName="confirmPassword">
                     <mat-hint *ngIf="!signUpForm.get('confirmPassword')?.touched">
                         Please Enter Password Here
                     </mat-hint>
-                </mat-form-field><br><br>
+                </mat-form-field><br><br> -->
 
                 <button mat-raised-button color="primary" style="margin-left: 175px;"
                     (click)="submit()">Submit</button><br>

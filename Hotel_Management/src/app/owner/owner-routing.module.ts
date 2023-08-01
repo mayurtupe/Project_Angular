@@ -8,7 +8,7 @@ import { NewhotelregistrationComponent } from './newhotelregistration/newhotelre
 
 const routes: Routes = [
   { path: '', component: OwnerHomeComponent },
-  { path: 'ownerHome', component: OwnerHomeComponent},
+  { path: 'owner-home', component: OwnerHomeComponent},
   { path: 'ownersignup', component: OwnersignupComponent },
   { path: 'ownersuccess', component: OwnersuccessComponent },
   { path: 'newhotelregistration', component: NewhotelregistrationComponent}
