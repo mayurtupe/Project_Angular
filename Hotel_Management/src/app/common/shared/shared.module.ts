@@ -6,11 +6,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from "@angular/material/input";
+import { MatToolbarModule } from "@angular/material/toolbar"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MatSelectModule } from "@angular/material/select";
 import { MatOptionModule } from "@angular/material/core";
 import { ToastrModule } from "ngx-toastr";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
     declarations: [],
@@ -22,12 +24,14 @@ import { ToastrModule } from "ngx-toastr";
         MatFormFieldModule,
         MatRadioModule,
         MatInputModule,
+        MatToolbarModule,
         ReactiveFormsModule,
         HttpClientModule,
         MatSelectModule,
         MatOptionModule,
         FormsModule,
-        ToastrModule
+        ToastrModule.forRoot(),
+        MatDialogModule
 
     ],
     exports: [
@@ -37,12 +41,14 @@ import { ToastrModule } from "ngx-toastr";
         MatFormFieldModule,
         MatRadioModule,
         MatInputModule,
+        MatToolbarModule,
         ReactiveFormsModule,
         HttpClientModule,
         MatSelectModule,
         MatOptionModule,
         FormsModule,
-        ToastrModule
+        ToastrModule,
+        MatDialogModule
     ]
 })
 export class SharedModule { }

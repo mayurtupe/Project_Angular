@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonApiCallService } from 'src/app/common/common-api-call.service';
 import { CommonService } from 'src/app/common/common.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-owner-home',
@@ -24,8 +23,7 @@ export class OwnerHomeComponent implements OnInit {
   constructor(private router: Router,
     private fb: FormBuilder,
     private commonApiCallService: CommonApiCallService,
-    private commonService: CommonService,
-    private toastrService: ToastrService) { }
+    private commonService: CommonService) { }
 
   back() {
     this.router.navigateByUrl('owner/owner-home');
@@ -33,6 +31,7 @@ export class OwnerHomeComponent implements OnInit {
   ngOnInit() {
     this.endPoint = this.commonService.journey;
     this.forgotPassword = this.commonService.forgotPassword;
+    this.userName = this.commonService.userName;
     console.log('endPoint', this.endPoint);
     this.loginFormDatails();
     this.getOwnerApiData();
@@ -68,17 +67,21 @@ export class OwnerHomeComponent implements OnInit {
           // return ownerData;
         }
       });
-    }
+
       if (this.validUser) {
         this.router.navigateByUrl('owner/ownersuccess');
       }
       else {
         // alert('username or password is incorrect');
-        this.commonService.warningToaster('Password is incorrect', 'warning')
+        this.commonService.warningToaster('Password is incorrect', 'Warning',
+          {
+            timeOut: 10000,
+            positionClass: 'toast-top-center'
+          })
         this.commonService.forgotPassword = true;
         this.router.navigateByUrl('owner/owner-home');
       }
-    
+    }
   }
 
   async getOwnerApiData() {
@@ -110,7 +113,7 @@ export class OwnerHomeComponent implements OnInit {
   }
 
   async updatePassword() {
-    let user: any;
+    var user: any;
     this.ownerData.forEach((data: any) => {
       if (data.UserName === this.loginForm.value.userName) {
         user = data;
@@ -124,6 +127,9 @@ export class OwnerHomeComponent implements OnInit {
       //   console.log('respo', respo);
       // })
       await this.commonApiCallService.patchApiCall(this.endPoint, request, user.id).toPromise()
+    }
+    else{
+      alert('user is not exist')
     }
   }
 }

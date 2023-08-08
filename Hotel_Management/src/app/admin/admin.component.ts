@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonApiCallService } from '../common/common-api-call.service';
 import { CommonService } from '../common/common.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -14,24 +15,25 @@ export class AdminComponent {
   adminData: any;
   endPoint!: string;
   validAdmin: boolean = false;
+  data: any;
 
   constructor(private router: Router,
     private commonApiCallService: CommonApiCallService,
     private fb: FormBuilder,
-    private commonService: CommonService) { }
+    private commonService: CommonService,
+    private http: HttpClient) { }
 
   ngOnInit() {
     this.AdminDetails();
     this.endPoint = this.commonService.journey;
     this.getAdminApiData();
     console.log(this.endPoint);
-    
   }
   back() {
     this.router.navigateByUrl('home')
   }
   admin() {
-    
+
     console.log(this.adminForm.value);
 
     if (this.adminData) {
@@ -75,6 +77,7 @@ export class AdminComponent {
   login() {
     this.admin();
     console.log(this.adminForm.value);
-    console.log('this.adminData', this.adminData);
+    console.log('this.adminForm', this.adminForm);
   }
+
 }

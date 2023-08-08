@@ -1,25 +1,68 @@
-<div class="bg">
-<button mat-raised-button color="accent" (click)="hotelRegistration()">New Hotel Registration</button>
-<button mat-raised-button color="accent" (click)="myHotelDetails()">My Hotel Details</button>
-</div>
+<div class="bg"><br>
+    <div class="button">
+        <button mat-raised-button color="primary" (click)="hotelRegistration()">New Hotel
+            Registration</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="primary" (click)="myHotelDetails()">My Hotel Details</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+        <!-- <input mat-input type="text" placeholder="Hotel Details Search"> -->
+        <!-- <button mat-raised-button color="accent" (click)="allOwnerDetails()"> Owner Details (Admin access only)</button> -->
+    </div>
+    <br><br>
 
-<div class="btn-container">
-    <button mat-raised-button routerLink="/owener/newhotel">ADD HOTEL</button>
-    <button mat-raised-button (click)="getdata()">Hotel Details</button>
-  </div>
-  
-  <div>
-    <input type="text" placeholder="Search here..." [(ngModel)]="inputValue" (keyup)="inptVal($event)">
-  </div>
-  <table>
-    <tr>
-      <th *ngFor="let heading of tableHeading">{{ heading }}</th>
-    </tr>
-    <tr *ngFor="let hoteldata of hotelDetails">
-      <th>{{ hoteldata.hotelName }}</th>
-      <th>{{ hoteldata.hotelAddress }}</th>
-      <th>{{ hoteldata.roomsAvailable }}</th>
-      <th>{{ hoteldata.hotelMenu }}</th>
-      <th>{{ hoteldata.roomsAvailable }}</th>
-    </tr>
-  </table>
+    <!-- <div *ngIf="showTable">
+        <table *ngIf="userHotelDetails.length > 0 && showTable">
+            <tr>
+                <th>Owner Name</th>
+                <th>Owner Contact</th>
+                <th>Hotel Name</th>
+                <th>Hotel Address</th>
+                <th>Hotel Contact</th>
+                <th>Hotel Menu</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+            <tr *ngFor="let hotelData of userHotelDetails">
+                <td>{{hotelData.ownerName}}</td>
+                <td>{{hotelData.ownerContact}}</td>
+                <td>{{hotelData.hotelName}}</td>
+                <td>{{hotelData.hotelAddress}}</td>
+                <td>{{hotelData.hotelContact}}</td>
+                <td>{{hotelData.hotelMenu}}</td>
+                <td><mat-icon (click)="delete(hotelData.id)">delete</mat-icon></td>
+                <td><mat-icon (click)="edit(hotelData.id)">mode_edit</mat-icon></td>
+            </tr>
+        </table>
+    </div> -->
+    <div *ngIf="showTable">
+        <table *ngIf="userHotelDetails.length > 0 && showTable">
+            <tr>
+                <th>id</th>
+                <th>ownerName</th>
+                <th>ownerContact</th>
+                <th>hotelName</th>
+                <th>hotelAddress</th>
+                <th>hotelContact</th>
+                <th>hotelMenu</th>
+                <th>roomsAvailable</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+
+            <tbody>
+                <tr *ngFor="let item of userHotelDetails">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.ownerName }}</td>
+                    <td>{{ item.ownerContact }}</td>
+                    <td>{{ item.hotelName }}</td>
+                    <td>{{ item.hotelAddress }}</td>
+                    <td>{{ item.hotelContact}}</td>
+                    <td>{{ item.hotelMenu}}</td>
+                    <td>{{ item.roomsAvailable}}</td>
+                    <td><mat-icon (click)="delete(item.id)">delete</mat-icon></td>
+                    <td><mat-icon (click)="edit(item.id)">mode_edit</mat-icon></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -53,7 +53,7 @@
       "Mobile": "98989898989",
       "Password": "Sai@123",
       "Gender": "male",
-      "id": 5
+      "id": 6
     }
   ],
   "hotelDetails": [
@@ -79,7 +79,7 @@
       "roomsAvailable": "100",
       "ownerCheck": "true",
       "password": "poonam@123",
-      "id": 1
+      "id": 1.1
     },
     {
       "ownerName": "poonam",
@@ -91,7 +91,7 @@
       "roomsAvailable": "100",
       "ownerCheck": "true",
       "password": "poonam@123",
-      "id": 1
+      "id": 1.2
     },
     {
       "ownerName": "tushar",
