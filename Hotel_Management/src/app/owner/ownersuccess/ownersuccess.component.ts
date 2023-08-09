@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CommonApiCallService } from 'src/app/common/common-api-call.service';
 import { CommonService } from 'src/app/common/common.service';
 import { DialogComponent } from '../dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ownersuccess',
@@ -16,11 +17,10 @@ export class OwnersuccessComponent {
   userHotelDetails: any[] = [];
   showTable: any;
   dataById: any;
-  dialog: any;
 
   constructor(private router: Router,
     private commonApiCallService: CommonApiCallService,
-    private commonService: CommonService) { }
+    private commonService: CommonService, public dialog: MatDialog) { }
 
   ngOnInit() {
     console.log('oninit calling...');
@@ -41,16 +41,22 @@ export class OwnersuccessComponent {
     this.userHotelDetails = []
     if (this.hotelDetails) {
       this.hotelDetailsByOwner(); if (this.userHotelDetails.length > 0) {
-
+        this.commonService.successToaster('Operation Successful', 'Success', {
+          timeOut: 10000,
+          positionClass: 'toast-top-right'
+        })
       }
       else {
         this.commonService.warningToaster('no any hotel available', 'Warning', {
           timeOut: 10000,
-          positionClass: 'toast-top-center'
+          positionClass: 'toast-top-left'
         })
       }
     } else {
-      alert('no owner data avaible')
+      this.commonService.warningToaster('no owner data available', 'Warning', {
+        timeOut: 10000,
+        positionClass: 'toast-top-left'
+      })
     }
   }
 
@@ -59,13 +65,17 @@ export class OwnersuccessComponent {
       if (element.ownerName === this.userName) {
         this.userHotelDetails.push(element)
       }
+      if (element.adminName === this.userName) {
+        this.userHotelDetails.push(element)
+      }
     })
   }
   delete(id: number) {
     const dialogRef = this.dialog.open(DialogComponent, {
       // data: {id:id},
-      width: '250px',
-      height: '250px'
+      width: 'fit-content',
+      height: 'fit-content',
+      // color:#fff,
     })
 
     dialogRef.afterClosed().subscribe((yesValue: any) => {

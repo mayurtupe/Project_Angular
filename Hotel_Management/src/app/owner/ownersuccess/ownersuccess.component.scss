@@ -5,17 +5,39 @@
     background-position: center;
     height: 100%;
 }
-.button{
+
+.button {
     text-align: center;
-    align-content:center;
+    align-content: center;
     border-color: #fff;
-    border-radius: 10px ;
+    border-radius: 10px;
 }
-table,tr,th,td{
-    border:2px solid rgb(10, 10, 10);
-    color: black;
+
+table,
+tr,
+td,
+th {
+    border: none;
     border-collapse: collapse;
-    padding: 5px 5px;
-    background-color: rgba(173, 216, 230, 0.733);
+    padding: 10px 10px;
+    background-color: #7783897c;
     margin: auto;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+th {
+    background-color: rgb(101, 203, 238);
+}
+
+tr:hover {
+    background-color: #6e05056e;
+
+
+}
+
+td:hover {
+    background-color: #6e05056e;
+
 }

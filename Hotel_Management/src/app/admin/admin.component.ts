@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
+
 export class AdminComponent {
   adminForm!: FormGroup;
   adminData: any;

@@ -14,6 +14,7 @@ import { MatOptionModule } from "@angular/material/core";
 import { ToastrModule } from "ngx-toastr";
 import { MatDialogModule } from "@angular/material/dialog";
 
+
 @NgModule({
     declarations: [],
     imports: [
@@ -31,7 +32,7 @@ import { MatDialogModule } from "@angular/material/dialog";
         MatOptionModule,
         FormsModule,
         ToastrModule.forRoot(),
-        MatDialogModule
+        MatDialogModule,
 
     ],
     exports: [
@@ -48,7 +49,7 @@ import { MatDialogModule } from "@angular/material/dialog";
         MatOptionModule,
         FormsModule,
         ToastrModule,
-        MatDialogModule
+        MatDialogModule,
     ]
 })
 export class SharedModule { }

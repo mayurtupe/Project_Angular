@@ -70,13 +70,18 @@ export class OwnerHomeComponent implements OnInit {
 
       if (this.validUser) {
         this.router.navigateByUrl('owner/ownersuccess');
+        this.commonService.successToaster('Welcome, you are logged in', 'Success',
+          {
+            timeOut: 10000,
+            positionClass: 'toast-top-right'
+          })
       }
       else {
         // alert('username or password is incorrect');
         this.commonService.warningToaster('Password is incorrect', 'Warning',
           {
             timeOut: 10000,
-            positionClass: 'toast-top-center'
+            positionClass: 'toast-top-left'
           })
         this.commonService.forgotPassword = true;
         this.router.navigateByUrl('owner/owner-home');
@@ -128,7 +133,7 @@ export class OwnerHomeComponent implements OnInit {
       // })
       await this.commonApiCallService.patchApiCall(this.endPoint, request, user.id).toPromise()
     }
-    else{
+    else {
       alert('user is not exist')
     }
   }

@@ -1,10 +1,11 @@
-<p>dialog works!</p>
-<!-- <h1 mat-dialog-title>Delete Record</h1>
-<div mat-dialog-content>
-    Would you like delete this record...?
-</div>
+<div class="mat-container">
+    <h1 mat-dialog-title>Delete Record</h1>
+    <div mat-dialog-content>
+        Would you like delete this record...?
+    </div>
 
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close (click)="onNoClick()">NO</button>
-    <button mat-button mat-dialog-close cdkFocusInitial (click)="onYesClick()">YES</button>
-</div> -->
+    <div mat-dialog-actions>
+        <button mat-raised-button color="accent" mat-dialog-close (click)="onNoClick()">NO</button>
+        <button mat-raised-button color="primary" mat-dialog-close cdkFocusInitial (click)="onYesClick()">YES</button>
+    </div>
+</div>

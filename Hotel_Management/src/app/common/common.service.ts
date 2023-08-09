@@ -23,5 +23,7 @@ export class CommonService {
   warningToaster(msg: any, title: any, configuration: any) {
     this.toastrService.warning(msg, title, configuration)
   }
-  
+  successToaster(msg: any, title: any, configuration: any) {
+    this.toastrService.success(msg, title, configuration)
+  }
 }
