@@ -13,11 +13,12 @@ export class NewhotelregistrationComponent {
   hotelRegistrationForm!: FormGroup;
   editId!: any;
   dataById: any;
+  hotelImages!: any;
 
   constructor(private fb: FormBuilder,
     private commonApiCallService: CommonApiCallService,
     private router: Router,
-    private commonService:CommonService) { }
+    private commonService: CommonService) { }
 
   ngOnInit() {
     this.editId = this.commonService.id;
@@ -34,6 +35,7 @@ export class NewhotelregistrationComponent {
       hotelMenu: [this.dataById ? this.dataById.hotelMenu : '', [Validators.required, Validators.minLength(2)]],
       roomsAvailable: [this.dataById ? this.dataById.roomsAvailable : '', [Validators.required, Validators.pattern('[0-9]*$')]],
       userPass: [this.dataById ? this.dataById.password : '', [Validators.required,]],
+      hotelImages: [this.dataById ? this.dataById.hotelImages : '']
     })
   }
   back() {
@@ -53,24 +55,38 @@ export class NewhotelregistrationComponent {
       roomsAvailable: this.hotelRegistrationForm.value.roomsAvailable,
       ownerCheck: this.hotelRegistrationForm.value.ownerCheck,
       password: this.hotelRegistrationForm.value.userPass,
+      hotelImages: this.hotelImages
     }
-    if(this.editId){
-    this.commonApiCallService.patchApiCall(endpoint, request, this.editId).subscribe((resp: any) => {
-      console.log(resp);
-    })
-    }
-    else{
-      this.commonApiCallService.postApiCall(endpoint, request).subscribe((resp:any)=>{
+    if (this.editId) {
+      this.commonApiCallService.patchApiCall(endpoint, request, this.editId).subscribe((resp: any) => {
         console.log(resp);
-        
+      })
+
+    }
+    else {
+      this.commonApiCallService.postApiCall(endpoint, request).subscribe((resp: any) => {
+        console.log(resp);
+
       })
     }
     this.router.navigateByUrl('owner/ownerSuccess');
   }
 
-  ngOnDestroy(){
+  onFileSelected(event: any) {
+    let images = [...event.target.files]
+    let fileNames = images.map((item: any) => {
+      return "../assets/images/" + item.name
+    })
+    this.hotelImages = [...fileNames]
+  }
+  ngOnDestroy() {
     this.commonService.dataById = {};
     this.commonService.id = '';
+    //Toaster Applied
+    this.commonService.successToaster('Operation Successful', 'Success', {
+      timeOut: 1000,
+      positionClass: 'toast-top-right'
+    })
   }
 
 }

@@ -7,9 +7,11 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent {
+  panelclass!:string;
   
-  
-  constructor (public dialogRef: MatDialogRef<DialogComponent>,){}
+  constructor (public dialogRef: MatDialogRef<DialogComponent>,){
+    this.panelclass = 'dialog-container'
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

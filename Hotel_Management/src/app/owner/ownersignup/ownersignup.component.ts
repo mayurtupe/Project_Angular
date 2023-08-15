@@ -36,8 +36,9 @@ export class OwnersignupComponent {
       email: ['', [Validators.required]],
       mobile: ['', [Validators.required]],
       gender: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
+      file:['']
+      // password: ['', [Validators.required]],
+      // confirmPassword: ['', [Validators.required]],
 
     })
   }
@@ -50,8 +51,9 @@ export class OwnersignupComponent {
       Email: this.signUpForm.value.email,
       Mobile: this.signUpForm.value.mobile,
       Gender: this.signUpForm.value.gender,
-      Password: this.signUpForm.value.password,
-      ConfirmPassword: this.signUpForm.value.confirmPassword,
+      File: this.signUpForm.value.file
+      // Password: this.signUpForm.value.password,
+      // ConfirmPassword: this.signUpForm.value.confirmPassword,
     }
 
     // this.apicallService.postApiCall(this.journey, request).subscribe(resp => {
@@ -67,4 +69,10 @@ export class OwnersignupComponent {
     this.router.navigateByUrl('owner/owner-home');
   }
 
+  onFileSelected(event:any) {
+    const file: File = event.target.files[0]; 
+    // Do something with the selected file...
+    console.log(file.name);
+    
+  }
 }

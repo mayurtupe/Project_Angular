@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonApiCallService } from 'src/app/common/common-api-call.service';
 import { CommonService } from 'src/app/common/common.service';
-import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+import * as CONSTANTS from 'src/app/common/common-constants'
 
 @Component({
   selector: 'app-ownersuccess',
@@ -12,11 +13,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class OwnersuccessComponent {
 
-  hotelDetails: any;
-  userName!: string;
-  userHotelDetails: any[] = [];
-  showTable: any;
-  dataById: any;
+  public hotelDetails: any;
+  public userName!: string;
+  public userHotelDetails: any[] = [];
+  public showTable: any;
+  public dataById: any;
+  public ownerName: any;
 
   constructor(private router: Router,
     private commonApiCallService: CommonApiCallService,
@@ -24,15 +26,22 @@ export class OwnersuccessComponent {
 
   ngOnInit() {
     console.log('oninit calling...');
-    this.userName = this.commonService.userName;
+    // this.userName = this.commonService.userName;
+    this.userName = 'mayur'
   }
 
   hotelRegistration() {
     this.router.navigateByUrl('owner/newhotelregistration')
+    // Toaster Applied
+    this.commonService.warningToaster('Enter the Details of the Hotel/Entity', 'Information', {
+      timeOut: 1000,
+      positionClass: 'toast-top-right'
+    })
   }
   async myHotelDetails() {
     this.showTable = !this.showTable;
-    let endPoint = 'hotelDetails';
+    // let endPoint = 'hotelDetails';
+    let endPoint = CONSTANTS.endpoint.hotelDetails;
     // this.commonApiCallService.getApiCall(endPoint).subscribe(data => {
     //   this.hotelDetails = data;
     // })
@@ -40,23 +49,23 @@ export class OwnersuccessComponent {
     console.log('hotelDetails', this.hotelDetails);
     this.userHotelDetails = []
     if (this.hotelDetails) {
-      this.hotelDetailsByOwner(); if (this.userHotelDetails.length > 0) {
+      this.hotelDetailsByOwner();
+      if (this.userHotelDetails.length > 0) {
+        //Toaster Applied
         this.commonService.successToaster('Operation Successful', 'Success', {
-          timeOut: 10000,
+          timeOut: 1000,
+          positionClass: 'toast-top-right'
+        })
+
+      }
+      else {
+        // Toaster Applied
+        this.commonService.warningToaster('no any hotel available', 'Warning', {
+          timeOut: 1000,
           positionClass: 'toast-top-right'
         })
       }
-      else {
-        this.commonService.warningToaster('no any hotel available', 'Warning', {
-          timeOut: 10000,
-          positionClass: 'toast-top-left'
-        })
-      }
-    } else {
-      this.commonService.warningToaster('no owner data available', 'Warning', {
-        timeOut: 10000,
-        positionClass: 'toast-top-left'
-      })
+
     }
   }
 
@@ -64,25 +73,33 @@ export class OwnersuccessComponent {
     this.hotelDetails.forEach((element: any) => {
       if (element.ownerName === this.userName) {
         this.userHotelDetails.push(element)
+        // this.commonService.successToaster('Details Displayed Successful', 'Success', {
+        //   timeOut: 1000,
+        //   positionClass: 'toast-top-right'
+        // })
       }
       if (element.adminName === this.userName) {
         this.userHotelDetails.push(element)
+        // this.commonService.successToaster('Details Displayed Successful', 'Success', {
+        //   timeOut: 1000,
+        //   positionClass: 'toast-top-right'
+        // })
       }
     })
   }
-  delete(id: number) {
+  public delete(id: number):void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      // data: {id:id},
-      width: 'fit-content',
-      height: 'fit-content',
-      // color:#fff,
+      panelClass: 'dialog-container',
+      // width: 'fit-content',
+      // height: 'fit-content',
+
     })
 
     dialogRef.afterClosed().subscribe((yesValue: any) => {
       if (yesValue === 'YES') {
         this.deleteRecord(id);
         this.showTable = !this.showTable,
-          this.myHotelDetails()
+        this.myHotelDetails()
       }
     });
 

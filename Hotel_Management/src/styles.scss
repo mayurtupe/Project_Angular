@@ -39,10 +39,16 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-container {
-  background-color: rgba(136, 230, 158, 0.9) !important;
+  background-color: rgba(130, 30, 230, 0.9) !important;
   color: #fff !important;
   padding: 10px 10px  !important;
   overflow: hidden !important;
   font-weight: bold;
   // border-radius: 15px;
+}
+.mat-dialog-title {
+  color:#fff !important;
+}
+.mat-dialog-title {
+  color:#fff !important;
 }

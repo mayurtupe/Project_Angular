@@ -37,13 +37,14 @@
         <table *ngIf="userHotelDetails.length > 0 && showTable">
             <tr>
                 <th>id</th>
-                <th>ownerName</th>
-                <th>ownerContact</th>
-                <th>hotelName</th>
-                <th>hotelAddress</th>
-                <th>hotelContact</th>
-                <th>hotelMenu</th>
-                <th>roomsAvailable</th>
+                <th>Owner Name</th>
+                <th>Owner Contact</th>
+                <th>Hotel Name</th>
+                <th>Hotel Address</th>
+                <th>Hotel Contact</th>
+                <th>Hotel Menu</th>
+                <th>Rooms Available</th>
+                <th>Hotel Images</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>
@@ -58,6 +59,7 @@
                     <td>{{ item.hotelContact}}</td>
                     <td>{{ item.hotelMenu}}</td>
                     <td>{{ item.roomsAvailable}}</td>
+                    <td><img *ngIf="item.hotelImages" [src]="item.hotelImages" height="50" width="75"></td>
                     <td><mat-icon (click)="delete(item.id)">delete</mat-icon></td>
                     <td><mat-icon (click)="edit(item.id)">mode_edit</mat-icon></td>
                 </tr>

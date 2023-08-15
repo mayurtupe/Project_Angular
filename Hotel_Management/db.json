@@ -1,8 +1,8 @@
 {
   "admin": [
     {
-      "adminName":"mayur",
-      "password":"mayur@123"
+      "adminName": "mayur",
+      "password": "mayur@123"
     }
   ],
   "user": [],
@@ -67,6 +67,7 @@
       "roomsAvailable": "100",
       "ownerCheck": "true",
       "password": "poonam@123",
+      "hotelImages": "assets/images/hottel.png",
       "id": 1
     },
     {
@@ -108,14 +109,28 @@
     {
       "ownerName": "mayur",
       "ownerContact": "9371796000",
-      "hotelName": "DevanshInn",
+      "hotelName": "Dining Inn",
       "hotelAddress": "Baramati",
-      "hotelContact": "9349969696",
-      "hotelMenu": "veg,non-veg",
-      "roomsAvailable": "300",
+      "hotelContact": "9371796000",
+      "hotelMenu": "Veg, Non-veg",
+      "roomsAvailable": "100",
       "ownerCheck": "true",
       "password": "mayur@123",
+      "hotelImages": "assets/images/hottel.png",
       "id": 3
+    },
+    {
+      "ownerName": "mayur",
+      "ownerContact": "9371796000",
+      "hotelName": "Spicy Grills",
+      "hotelAddress": "Baramati",
+      "hotelContact": "9371796000",
+      "hotelMenu": "Non-veg",
+      "roomsAvailable": "10",
+      "ownerCheck": "true",
+      "password": "mayur@123",
+      "hotelImages": "assets/images/hottel.png",
+      "id": 4
     }
   ]
 }

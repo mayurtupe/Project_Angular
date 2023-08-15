@@ -1,6 +1,11 @@
 <div class="bg">
     <button mat-raised-button color="primary" class="btns" (click)="back()">Back</button> <br><br><br>
     <mat-card>
+        <mat-toolbar color="accent">
+            <h2 class="h2">
+                <mat-icon> local_hotel </mat-icon>GetSetBooking..
+            </h2>
+        </mat-toolbar><br>
 
         <mat-card-header style="display: block;">
             <h2><strong>Hotel Registration Form</strong> </h2>
@@ -12,65 +17,85 @@
                     <mat-label>Owner Name</mat-label>
                     <input matInput formControlName="ownerName">
                     <mat-hint *ngIf="!hotelRegistrationForm.get('ownerName')?.touched">Enter Full name here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('ownerName')?.errors?.['required']">This field is required</mat-error>
-                    <mat-error *ngIf="!hotelRegistrationForm.get('ownerName')?.errors?.['pattern'] && hotelRegistrationForm.get('ownerName')?.errors?.['minlength']">
+                    <mat-error *ngIf="hotelRegistrationForm.get('ownerName')?.errors?.['required']">This field is
+                        required</mat-error>
+                    <mat-error
+                        *ngIf="!hotelRegistrationForm.get('ownerName')?.errors?.['pattern'] && hotelRegistrationForm.get('ownerName')?.errors?.['minlength']">
                         Min 5 character are required </mat-error>
-                    <mat-error *ngIf="hotelRegistrationForm.get('ownerName')?.errors?.['pattern']">Pattern is not match</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('ownerName')?.errors?.['pattern']">Pattern is not
+                        match</mat-error>
                 </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <mat-form-field class="form-field">
                     <mat-label>User Pass</mat-label>
                     <input matInput formControlName="userPass">
                     <mat-hint *ngIf="!hotelRegistrationForm.get('userPass')?.touched">Enter user pass here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('userPass')?.errors?.['required']">This field is required</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('userPass')?.errors?.['required']">This field is
+                        required</mat-error>
                 </mat-form-field>
 
                 &nbsp;&nbsp;&nbsp;<mat-form-field class="form-field">
                     <mat-label>Owner Contact</mat-label>
                     <input type="tel" matInput formControlName="ownerContact" maxlength="10">
                     <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
-                    <mat-hint *ngIf="!hotelRegistrationForm.get('ownerContact')?.touched">Enter owner contact here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('ownerContact')?.errors?.['required']">This field is required</mat-error>
-                    <mat-error *ngIf="hotelRegistrationForm.get('ownerContact')?.errors?.['pattern']">Accept integers only</mat-error>
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('ownerContact')?.touched">Enter owner contact
+                        here</mat-hint>
+                    <mat-error *ngIf="hotelRegistrationForm.get('ownerContact')?.errors?.['required']">This field is
+                        required</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('ownerContact')?.errors?.['pattern']">Accept integers
+                        only</mat-error>
                 </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <mat-form-field class="form-field1">
                     <mat-label>Hotel Name</mat-label>
                     <input matInput formControlName="hotelName">
                     <mat-hint *ngIf="!hotelRegistrationForm.get('hotelName')?.touched">Enter hotel name here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelName')?.errors?.['required']">This field is required</mat-error>
-                    <mat-error *ngIf="!hotelRegistrationForm.get('hotelName')?.errors?.['pattern'] && hotelRegistrationForm.get('hotelName')?.errors?.['minlength']">
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelName')?.errors?.['required']">This field is
+                        required</mat-error>
+                    <mat-error
+                        *ngIf="!hotelRegistrationForm.get('hotelName')?.errors?.['pattern'] && hotelRegistrationForm.get('hotelName')?.errors?.['minlength']">
                         Min 5 character are required </mat-error>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelName')?.errors?.['pattern']">Pattern is not match</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelName')?.errors?.['pattern']">Pattern is not
+                        match</mat-error>
                 </mat-form-field>
 
                 &nbsp;&nbsp;&nbsp;<mat-form-field class="form-field">
                     <mat-label>Hotel Address</mat-label>
                     <input matInput formControlName="hotelAddress">
-                    <mat-hint *ngIf="!hotelRegistrationForm.get('hotelAddress')?.touched">Enter hotel address here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelAddress')?.errors?.['required']">This field is required</mat-error>
-                    <mat-error *ngIf="!hotelRegistrationForm.get('hotelAddress')?.errors?.['pattern'] && hotelRegistrationForm.get('hotelAddress')?.errors?.['minlength']">
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('hotelAddress')?.touched">Enter hotel address
+                        here</mat-hint>
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelAddress')?.errors?.['required']">This field is
+                        required</mat-error>
+                    <mat-error
+                        *ngIf="!hotelRegistrationForm.get('hotelAddress')?.errors?.['pattern'] && hotelRegistrationForm.get('hotelAddress')?.errors?.['minlength']">
                         Min 5 character are required </mat-error>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelAddress')?.errors?.['pattern']">Pattern is not match</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelAddress')?.errors?.['pattern']">Pattern is not
+                        match</mat-error>
                 </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <mat-form-field class="form-field">
                     <mat-label>Hotel Contact</mat-label>
                     <input type="tel" matInput matInput placeholder="555-555-1234" formControlName="hotelContact">
                     <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
-                    <mat-hint *ngIf="!hotelRegistrationForm.get('hotelContact')?.touched">Enter hotel contact here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelContact')?.errors?.['required']">This field is required</mat-error>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelContact')?.errors?.['pattern']">Accept integers only</mat-error>
+                    <mat-hint *ngIf="!hotelRegistrationForm.get('hotelContact')?.touched">Enter hotel contact
+                        here</mat-hint>
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelContact')?.errors?.['required']">This field is
+                        required</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelContact')?.errors?.['pattern']">Accept integers
+                        only</mat-error>
                 </mat-form-field><br>
 
                 &nbsp;&nbsp;&nbsp;<mat-form-field class="form-field">
                     <mat-label>Hotel Menu</mat-label>
                     <input matInput formControlName="hotelMenu">
                     <mat-hint *ngIf="!hotelRegistrationForm.get('hotelMenu')?.touched">Enter hotel menu here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelMenu')?.errors?.['required']">This field is required</mat-error>
-                    <mat-error *ngIf="!hotelRegistrationForm.get('hotelMenu')?.errors?.['pattern'] && hotelRegistrationForm.get('hotelMenu')?.errors?.['minlength']">
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelMenu')?.errors?.['required']">This field is
+                        required</mat-error>
+                    <mat-error
+                        *ngIf="!hotelRegistrationForm.get('hotelMenu')?.errors?.['pattern'] && hotelRegistrationForm.get('hotelMenu')?.errors?.['minlength']">
                         Min 2 character are required </mat-error>
-                    <mat-error *ngIf="hotelRegistrationForm.get('hotelMenu')?.errors?.['pattern']">Pattern is not match</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('hotelMenu')?.errors?.['pattern']">Pattern is not
+                        match</mat-error>
                 </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <mat-form-field class="form-field">
@@ -78,11 +103,17 @@
                     <input matInput formControlName="roomsAvailable">
                     <mat-hint *ngIf="!hotelRegistrationForm.get('roomsAvailable')?.touched">Enter rooms availabilty
                         here</mat-hint>
-                    <mat-error *ngIf="hotelRegistrationForm.get('roomsAvailable')?.errors?.['required']">This field is required</mat-error>
+                    <mat-error *ngIf="hotelRegistrationForm.get('roomsAvailable')?.errors?.['required']">This field is
+                        required</mat-error>
                 </mat-form-field><br><br>
 
-                <button mat-raised-button color="primary" style="margin-left: 175px;"
-                    (click)="submitDetails()">Submit Details</button><br>
+                <label>Add Hotel Images</label>
+                <input type="file" formControlName="hotelImages" multiple accept="image/*"
+                    (change)="onFileSelected($event)">
+                <br><br>
+
+                <button mat-raised-button color="primary" style="margin-left: 175px;" (click)="submitDetails()">Submit
+                    Details</button><br>
 
             </form>
         </mat-card-content>

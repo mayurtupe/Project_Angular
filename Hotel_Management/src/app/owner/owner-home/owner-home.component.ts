@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonApiCallService } from 'src/app/common/common-api-call.service';
 import { CommonService } from 'src/app/common/common.service';
@@ -19,6 +19,7 @@ export class OwnerHomeComponent implements OnInit {
   showForgetPasswordForm: boolean = false;
   forgotPassword: boolean = false;
   userName!: string;
+  passwordMismatch: any;
 
   constructor(private router: Router,
     private fb: FormBuilder,
@@ -47,9 +48,15 @@ export class OwnerHomeComponent implements OnInit {
 
   forgetPasswordFormDetails() {
     this.forgetPasswordForm = this.fb.group({
-      newPassword: [],
-      confirmPassword: []
-    })
+      newPassword: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]]
+    }, { Validator: this.checkPasswords })
+  }
+
+  checkPasswords(group: FormGroup) {
+    let password = group.controls['newPassword']?.value;
+    let confirmPassword = group.controls['confirmPassword']?.value;
+    return password === confirmPassword ? null : { notSame: true };
   }
 
   login() {
@@ -61,7 +68,7 @@ export class OwnerHomeComponent implements OnInit {
     // console.log('this.ownerData', this.ownerData);
 
     if (this.ownerData) {
-      this.ownerData.forEach((ownerData: any) => {
+      this.ownerData.find((ownerData: any) => {
         if (ownerData.UserName === this.loginForm.value.userName && ownerData.Password === this.loginForm.value.password) {
           this.validUser = true
           // return ownerData;
@@ -70,19 +77,22 @@ export class OwnerHomeComponent implements OnInit {
 
       if (this.validUser) {
         this.router.navigateByUrl('owner/ownersuccess');
+        //Toastr Applied
         this.commonService.successToaster('Welcome, you are logged in', 'Success',
           {
-            timeOut: 10000,
+            timeOut: 1000,
             positionClass: 'toast-top-right'
           })
       }
       else {
         // alert('username or password is incorrect');
+        // Toastr Applied
         this.commonService.warningToaster('Password is incorrect', 'Warning',
           {
-            timeOut: 10000,
-            positionClass: 'toast-top-left'
+            timeOut: 1000,
+            positionClass: 'toast-top-right'
           })
+
         this.commonService.forgotPassword = true;
         this.router.navigateByUrl('owner/owner-home');
       }
@@ -114,7 +124,7 @@ export class OwnerHomeComponent implements OnInit {
   submit() {
     this.updatePassword();
     this.showForgetPasswordForm = !this.showForgetPasswordForm;
-    this.commonService.forgotPassword = false;
+    this.forgotPassword = false;
   }
 
   async updatePassword() {
@@ -126,15 +136,24 @@ export class OwnerHomeComponent implements OnInit {
     })
     if (user) {
       let request = {
-        Password: this.forgetPasswordForm.value.newPassword
+        Password: this.forgetPasswordForm.value.confirmPassword
       }
       // this.commonApiCallService.patchApiCall(this.endPoint, request, user.id).subscribe((respo: any) => {
       //   console.log('respo', respo);
       // })
       await this.commonApiCallService.patchApiCall(this.endPoint, request, user.id).toPromise()
+      // toaster Applied
+      this.commonService.successToaster('Password Change Successful', 'Success', {
+        timeOut: 1000,
+        positionClass: 'toast-top-right'
+      })
     }
     else {
-      alert('user is not exist')
+      // Toaster Applied
+      this.commonService.warningToaster('User does not exist, retry again with correct data', 'Success', {
+        timeOut: 1000,
+        positionClass: 'toast-top-right'
+      })
     }
   }
 }

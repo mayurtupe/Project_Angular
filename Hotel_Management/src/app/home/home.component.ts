@@ -19,7 +19,7 @@ constructor (private router:Router,
       this.commonService.journey = 'admin'
       this.router.navigateByUrl('admin');
       this.commonService.successToaster('Operation successful', 'Success', {
-        timeOut: 10000,
+        timeOut: 1000,
         positionClass: 'toast-top-right'
       })
     }
@@ -27,7 +27,7 @@ constructor (private router:Router,
       this.commonService.journey = 'owner'
       this.router.navigateByUrl('owner');
       this.commonService.successToaster('Operation successful', 'Success', {
-        timeOut: 10000,
+        timeOut: 1000,
         positionClass: 'toast-top-right'
       })
     }
@@ -35,7 +35,7 @@ constructor (private router:Router,
       this.commonService.journey = 'user'
       this.router.navigateByUrl('user');
       this.commonService.successToaster('Operation successful', 'Success', {
-        timeOut: 10000,
+        timeOut: 1000,
         positionClass: 'toast-top-right'
       })
     }

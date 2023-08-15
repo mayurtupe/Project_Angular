@@ -41,6 +41,10 @@ export class AdminComponent {
       this.isValidAdmin();
       if (this.validAdmin) {
         this.router.navigateByUrl('owner/ownersuccess');
+        this.commonService.successToaster('Operation Successful', 'Success', {
+          timeOut: 1000,
+          positionClass: 'toast-top-right'
+        })
       }
       else {
         this.router.navigateByUrl('home');
@@ -79,6 +83,10 @@ export class AdminComponent {
     this.admin();
     console.log(this.adminForm.value);
     console.log('this.adminForm', this.adminForm);
+    this.commonService.successToaster('Operation Successful', 'Success', {
+      timeOut: 1000,
+      positionClass: 'toast-top-right'
+    })
   }
 
 }

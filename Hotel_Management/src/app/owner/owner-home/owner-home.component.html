@@ -22,20 +22,24 @@
     <form class="example-form" [formGroup]="forgetPasswordForm" *ngIf="showForgetPasswordForm">
         <h2><strong>Change Password</strong></h2>
 
-        <mat-form-field class="example-full-width">
+        <!-- <mat-form-field class="example-full-width">
             <mat-label>Username</mat-label>
-            <input matInput type="password" formControlName="current-Password">
-        </mat-form-field>
+            <input matInput type="password" formControlName="userName">
+        </mat-form-field> -->
 
         <mat-form-field class="example-full-width">
             <mat-label>New Password</mat-label>
-            <input matInput type="password" formControlName="new-Password">
+            <input matInput type="password" formControlName="newPassword">
+            <mat-error> Password is required </mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label>Confirm Password</mat-label>
-            <input matInput type="password" formControlName="confirm-Password">
-        </mat-form-field>
+            <input matInput type="password" formControlName="confirmPassword">
+            <mat-error> Confirm Password is required </mat-error>
+            <mat-error *ngIf="forgetPasswordForm.hasError('passwordMismatch')"></mat-error>
+        </mat-form-field><br>
+        <span class="error" *ngIf="forgetPasswordForm.hasError('notSame')">Password no match</span><br>
 
         <div>
             <button mat-raised-button color="primary" (click)="submit()">Submit</button>
